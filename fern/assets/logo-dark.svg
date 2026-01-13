@@ -1,0 +1,38 @@
+<svg width="200" height="50" viewBox="0 0 180 45" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15803d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Bonsai Tree Icon - Larger -->
+  <g>
+    <!-- Pot/base -->
+    <rect x="8" y="32" width="24" height="8" rx="2" fill="#8b5a3c"/>
+    
+    <!-- Tree trunk -->
+    <path d="M20 30 Q19 22 18 16 Q17 10 16 6 Q17 4 18 3 Q19 2 20 2 Q21 2 22 3 Q23 4 24 6 Q23 10 22 16 Q21 22 20 30 Z" fill="#7c3a1c"/>
+    
+    <!-- Main foliage crown -->
+    <ellipse cx="20" cy="8" rx="10" ry="8" fill="url(#logoGradient)"/>
+    
+    <!-- Left branch foliage -->
+    <ellipse cx="13" cy="14" rx="7" ry="6" fill="url(#logoGradient)" opacity="0.9"/>
+    
+    <!-- Right branch foliage -->
+    <ellipse cx="27" cy="14" rx="7" ry="6" fill="url(#logoGradient)" opacity="0.9"/>
+    
+    <!-- Accent leaves for depth -->
+    <circle cx="11" cy="12" r="2.5" fill="#22c55e" opacity="0.8"/>
+    <circle cx="29" cy="12" r="2.5" fill="#22c55e" opacity="0.8"/>
+    <circle cx="16" cy="6" r="2" fill="#4ade80" opacity="0.7"/>
+    <circle cx="24" cy="6" r="2" fill="#4ade80" opacity="0.7"/>
+    <circle cx="20" cy="4" r="1.5" fill="#86efac" opacity="0.6"/>
+  </g>
+  
+  <!-- Professional typography - Larger - white for dark mode -->
+  <text x="42" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#ffffff" letter-spacing="-0.5px" class="logo-text">Plant Store</text>
+</svg>
+
+

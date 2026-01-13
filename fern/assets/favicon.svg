@@ -1,0 +1,21 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faviconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15803d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Bonsai tree for favicon -->
+  <!-- Pot -->
+  <rect x="10" y="26" width="12" height="4" rx="1" fill="#8b5a3c"/>
+  
+  <!-- Trunk -->
+  <path d="M14 24 Q13 18 12 14 Q11 10 10 8 Q11 6 12 5 Q13 4 14 4 Q15 4 16 5 Q17 6 18 8 Q17 10 16 14 Q15 18 14 24 Z" fill="#7c3a1c"/>
+  
+  <!-- Main foliage -->
+  <ellipse cx="16" cy="8" rx="6" ry="5" fill="url(#faviconGradient)"/>
+  
+  <!-- Side foliage -->
+  <ellipse cx="13" cy="10" rx="4" ry="3" fill="url(#faviconGradient)" opacity="0.9"/>
+  <ellipse cx="19" cy="10" rx="4" ry="3" fill="url(#faviconGradient)" opacity="0.9"/>
+</svg>

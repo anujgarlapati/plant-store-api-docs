@@ -1,0 +1,249 @@
+/* Plant Store - Custom CSS */
+
+/* ============================================
+   SUPPORT FOOTER BAR
+   ============================================ */
+
+/* Add padding to body so content isn't covered by fixed footer */
+body {
+  padding-bottom: 60px !important;
+}
+
+#fern-support-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 8px 24px;
+  box-sizing: border-box;
+  z-index: 9998;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  transition: transform 0.3s ease;
+  transform: translateY(100%); /* Start hidden */
+}
+
+[data-theme="dark"] #fern-support-footer,
+.dark #fern-support-footer {
+  background: #0a0a0a;
+  border-top-color: #27272a;
+}
+
+.support-gradient {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.support-gradient__text {
+  font-size: 13px;
+  color: #374151;
+}
+
+.support-gradient__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.support-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.support-button.primary {
+  background: #166534;
+  color: #ffffff;
+}
+
+.support-button.primary:hover {
+  background: #15803d;
+}
+
+.support-button.secondary {
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.support-button.secondary:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+/* Dark mode support bar */
+[data-theme="dark"] .support-gradient,
+.dark .support-gradient {
+  background: #18181b;
+  border-color: #27272a;
+}
+
+[data-theme="dark"] .support-gradient__text,
+.dark .support-gradient__text {
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .support-button.primary,
+.dark .support-button.primary {
+  background: #4ade80;
+  color: #0a0a0a;
+}
+
+[data-theme="dark"] .support-button.primary:hover,
+.dark .support-button.primary:hover {
+  background: #22c55e;
+}
+
+[data-theme="dark"] .support-button.secondary,
+.dark .support-button.secondary {
+  background: #27272a;
+  color: #e5e7eb;
+  border-color: #3f3f46;
+}
+
+[data-theme="dark"] .support-button.secondary:hover,
+.dark .support-button.secondary:hover {
+  background: #3f3f46;
+}
+
+/* ============================================
+   LOGO SIZE
+   ============================================ */
+
+/* Make logo slightly bigger */
+[class*="logo"] img,
+[class*="Logo"] img,
+header img[alt*="logo"],
+header img[alt*="Logo"],
+header [class*="logo"] svg,
+header [class*="Logo"] svg {
+  transform: scale(1.35) !important;
+  transform-origin: left center !important;
+}
+
+/* ============================================
+   KEY FEATURES CARDS - Interactive Hover Effects
+   ============================================ */
+
+[class*="CardGroup"] > *,
+[class*="card-group"] > * {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer;
+}
+
+/* Hover state - lift and glow */
+[class*="CardGroup"] > *:hover,
+[class*="card-group"] > *:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Dark mode hover */
+[data-theme="dark"] [class*="CardGroup"] > *:hover,
+.dark [class*="CardGroup"] > *:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ============================================
+   TABS SPACING
+   ============================================ */
+
+[class*="Tabs"],
+[class*="tabs"] {
+  margin-top: 16px !important;
+}
+
+/* ============================================
+   RESPONSE DESCRIPTION FONT FIX
+   ============================================ */
+
+/* Make the green response description text match site font */
+[class*="response"] p,
+[class*="Response"] p,
+[class*="description"],
+[class*="Description"],
+[style*="background-color: rgb(220, 252, 231)"],
+[style*="background: rgb(220, 252, 231)"] {
+  font-family: inherit !important;
+}
+
+/* ============================================
+   ON THIS PAGE SIDEBAR - Fix text wrapping
+   ============================================ */
+
+/* Make the table of contents sidebar wider and text more readable */
+[class*="TableOfContents"],
+[class*="table-of-contents"],
+[class*="toc"],
+[class*="OnThisPage"],
+[class*="on-this-page"],
+aside[class*="right"],
+[class*="rightSidebar"],
+[class*="RightSidebar"] {
+  min-width: 200px !important;
+}
+
+/* Prevent aggressive text wrapping in sidebar items */
+[class*="TableOfContents"] a,
+[class*="table-of-contents"] a,
+[class*="toc"] a,
+[class*="OnThisPage"] a,
+[class*="on-this-page"] a {
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-height: 1.4 !important;
+}
+
+/* Make sidebar headings not wrap */
+[class*="TableOfContents"] span,
+[class*="table-of-contents"] span,
+[class*="toc"] span {
+  display: block !important;
+}
+
+/* ============================================
+   BOTTOM NAVIGATION BAR - Center on all pages
+   ============================================ */
+
+/* Center the footer navigation */
+nav.fern-footer-nav,
+.fern-footer-nav {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Center the title text in the Next/Prev links */
+/* Use flexbox to center the title container */
+.fern-footer-next,
+.fern-footer-prev {
+  justify-content: center !important;
+}
+
+.fern-footer-next > div.relative,
+.fern-footer-prev > div.relative {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+
+
+
+
+

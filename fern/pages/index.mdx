@@ -1,0 +1,258 @@
+---
+title: Plant Store API
+---
+
+## Your complete solution for plant inventory management
+
+`v1.0.18` · `OpenAPI 3.1`
+
+The Plant Store API provides a comprehensive set of endpoints for managing your plant inventory, processing orders, and handling customer interactions. Built with modern REST principles and designed for scalability.
+
+<div style={{display: 'flex', gap: '12px', marginTop: '16px'}}>
+  <a href="/api-reference" style={{padding: '8px 16px', borderRadius: '20px', background: '#166534', color: 'white', textDecoration: 'none', fontWeight: '600', fontSize: '14px'}}>📖 API Reference</a>
+  <a href="/api-reference#authentication" style={{padding: '8px 16px', borderRadius: '20px', background: '#27272a', color: 'white', textDecoration: 'none', fontWeight: '600', fontSize: '14px'}}>🔐 Authentication</a>
+</div>
+
+---
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Plant Management" icon="leaf" href="#popular-endpoints">
+    Full CRUD operations for your plant catalog with advanced filtering and search capabilities.
+  </Card>
+  <Card title="Webhooks" icon="bell" href="#webhooks">
+    Real-time event notifications for inventory changes, order updates, and more.
+  </Card>
+  <Card title="Secure Authentication" icon="lock" href="#authentication">
+    OAuth 2.0, API keys, and fine-grained permissions for enterprise deployments.
+  </Card>
+  <Card title="Powerful Search" icon="magnifying-glass" href="#popular-endpoints">
+    Filter plants by status, tags, and custom attributes with flexible query options.
+  </Card>
+</CardGroup>
+
+---
+
+## Popular Endpoints
+
+Explore our most commonly used API endpoints to get started quickly.
+
+### Find Plant by ID
+
+<div>
+**GET** [`/plant/{plantId}`](/api-reference/plant/getPlantById)
+</div>
+
+Retrieve detailed information about a specific plant using its unique identifier.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `plantId` | integer | Yes | The unique identifier of the plant |
+
+<br/>
+
+<Tabs>
+  <Tab title="Request">
+```http
+GET /plant/101
+```
+  </Tab>
+  <Tab title="Response">
+```json
+{
+  "id": 101,
+  "name": "Fern",
+  "status": "available",
+  "tags": ["green", "leafy"]
+}
+```
+  </Tab>
+</Tabs>
+
+---
+
+### Add New Plant
+
+<div>
+**POST** [`/plant`](/api-reference/plant/addPlant)
+</div>
+
+Add a new plant to your inventory with complete details.
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `name` | string | Yes | The name of the plant |
+| `status` | string | Yes | Availability status (`available`, `pending`, `sold`) |
+| `tags` | array | No | Tags for categorization |
+
+<br/>
+
+<Tabs>
+  <Tab title="Request">
+```json
+{
+  "name": "Monstera Deliciosa",
+  "status": "available",
+  "tags": ["tropical", "indoor", "popular"]
+}
+```
+  </Tab>
+  <Tab title="Response">
+```json
+{
+  "id": 102,
+  "name": "Monstera Deliciosa",
+  "status": "available",
+  "tags": ["tropical", "indoor", "popular"]
+}
+```
+  </Tab>
+</Tabs>
+
+---
+
+### Search Plants by Status
+
+<div>
+**GET** [`/plant/findByStatus`](/api-reference/plant/findPlantsByStatus)
+</div>
+
+Find all plants matching a specific availability status.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `status` | string | Yes | Filter by status (`available`, `pending`, `sold`) |
+
+<br/>
+
+<Tabs>
+  <Tab title="Request">
+```http
+GET /plant/findByStatus?status=available
+```
+  </Tab>
+  <Tab title="Response">
+```json
+[
+  {
+    "id": 101,
+    "name": "Fern",
+    "status": "available"
+  },
+  {
+    "id": 102,
+    "name": "Monstera",
+    "status": "available"
+  }
+]
+```
+  </Tab>
+</Tabs>
+
+---
+
+### Search Plants by Tags
+
+<div>
+**GET** [`/plant/findByTags`](/api-reference/plant/findPlantsByTags)
+</div>
+
+Find plants using tag-based filtering for precise catalog searches.
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `tags` | array | Yes | Tags to filter by (comma-separated) |
+
+<br/>
+
+<Tabs>
+  <Tab title="Request">
+```http
+GET /plant/findByTags?tags=tropical,indoor
+```
+  </Tab>
+  <Tab title="Response">
+```json
+[
+  {
+    "id": 102,
+    "name": "Monstera Deliciosa",
+    "status": "available",
+    "tags": ["tropical", "indoor", "popular"]
+  }
+]
+```
+  </Tab>
+</Tabs>
+
+---
+
+## Authentication
+
+The Plant Store API supports multiple authentication methods to suit your integration needs.
+
+<Accordion title="API Key Authentication">
+Include your API key in the request header for simple integrations.
+
+```bash
+curl -H "X-API-Key: your_api_key_here" \
+  https://api.plantstore.com/v1/plants
+```
+</Accordion>
+
+<Accordion title="OAuth 2.0">
+For production applications, we recommend OAuth 2.0 with the following scopes:
+
+| Scope | Description |
+|-------|-------------|
+| `read:plants` | Read plant catalog |
+| `write:plants` | Create and update plants |
+| `read:orders` | View order information |
+| `write:orders` | Create and manage orders |
+</Accordion>
+
+---
+
+## Webhooks
+
+Subscribe to real-time events for instant notifications about changes in your plant store.
+
+<Card title="plant.updated" icon="bell" href="/api-reference/plant-updated">
+  Triggered when plant details or status changes.
+</Card>
+
+<Callout type="info">
+  **Pro tip**: Configure your webhook endpoint URL in the [API Reference](/api-reference) to start receiving real-time notifications when plant data changes.
+</Callout>
+
+---
+
+## Rate Limits
+
+<Table>
+  <thead>
+    <tr>
+      <th>Plan</th>
+      <th>Requests/minute</th>
+      <th>Requests/day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Free</td>
+      <td>60</td>
+      <td>1,000</td>
+    </tr>
+    <tr>
+      <td>Pro</td>
+      <td>300</td>
+      <td>50,000</td>
+    </tr>
+    <tr>
+      <td>Enterprise</td>
+      <td>Unlimited</td>
+      <td>Unlimited</td>
+    </tr>
+  </tbody>
+</Table>

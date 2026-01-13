@@ -1,0 +1,20 @@
+instances:
+  - url: https://anuj-garlapati-demo.docs.buildwithfern.com
+title: Plant Store | API Documentation
+logo:
+  light: ./assets/logo.svg
+  dark: ./assets/logo-dark.svg
+favicon: ./assets/favicon.svg
+css: ./assets/custom.css
+js: ./assets/custom.js
+navigation:
+  - page: Home
+    path: ./pages/index.mdx
+  - api: API Reference
+colors:
+  accentPrimary:
+    light: '#166534'
+    dark: '#4ade80'
+  background:
+    light: '#ffffff'
+    dark: '#0a0a0a'
